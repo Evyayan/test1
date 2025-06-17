@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snac Berry | Crunchy Namkeen & Spicy Chips Wholesale</title>
+    <title>Snac Berry | Premium Namkeen & Chips</title>
     <style>
-        /* FIRE-UP THE COLORS! */
+        /* ---- COOLER WHITE & YELLOW PALETTE ---- */
         :root {
             --gold: #FFD700;
-            --spicy-red: #FF4500;
-            --deep-yellow: #FFA500;
-            --warm-white: #FFF8F0;
-            --dark: #2A2A2A;
+            --light-gold: #FFEC8B;
+            --dark-gold: #FFC800;
+            --white: #FFFFFF;
+            --cream: #FFFDF5;
+            --shadow: rgba(0,0,0,0.1);
         }
 
         * {
@@ -22,126 +23,108 @@
         }
 
         body {
-            background: var(--warm-white);
-            color: var(--dark);
+            background: var(--cream);
+            color: #333;
             overflow-x: hidden;
         }
 
-        /* ----- HEADER WITH SPICE ANIMATION ----- */
+        /* ---- LIQUID GOLD HEADER ---- */
         header {
-            background: linear-gradient(135deg, var(--spicy-red), var(--deep-yellow));
-            color: white;
-            padding: 2rem 0;
+            background: linear-gradient(135deg, var(--white), var(--light-gold));
+            padding: 3rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
-            animation: fireEntry 1s ease-out;
+            animation: liquidGold 8s infinite alternate;
         }
 
-        @keyframes fireEntry {
-            0% { 
-                opacity: 0; 
-                transform: translateY(-50px) scale(0.9);
-                background-position: 0% 50%;
-            }
-            100% { 
-                opacity: 1; 
-                transform: translateY(0) scale(1);
-                background-position: 100% 50%;
-            }
+        @keyframes liquidGold {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         .logo {
             width: 150px;
             height: 150px;
             margin: 0 auto;
-            background: var(--warm-white);
+            background: var(--white);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            animation: pulse 2s infinite alternate, rotate 15s infinite linear;
-            border: 5px solid var(--gold);
-            transition: all 0.5s;
+            box-shadow: 0 15px 35px rgba(255, 200, 0, 0.3);
+            animation: float 6s infinite ease-in-out;
+            border: 3px solid var(--gold);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         .logo:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 40px rgba(255, 69, 0, 0.4);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-            100% { transform: scale(1.05); box-shadow: 0 15px 35px rgba(255, 69, 0, 0.5); }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 20px 45px rgba(255, 200, 0, 0.5);
         }
 
         h1 {
-            margin: 1rem 0;
-            font-size: 3.5rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            animation: textFire 2s infinite alternate;
+            margin: 1.5rem 0;
+            font-size: 4rem;
+            background: linear-gradient(to right, var(--dark-gold), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 3px 3px 10px rgba(255, 200, 0, 0.2);
             letter-spacing: 2px;
+            animation: textShine 3s infinite alternate;
         }
 
-        @keyframes textFire {
-            0% { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--spicy-red); }
-            50% { text-shadow: 0 0 15px var(--gold), 0 0 30px var(--spicy-red); }
-            100% { text-shadow: 0 0 20px var(--gold), 0 0 40px var(--spicy-red); }
+        @keyframes textShine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         .slogan {
             font-size: 1.8rem;
             font-weight: bold;
+            color: var(--dark-gold);
             margin-bottom: 1rem;
-            animation: fadeIn 2s, float 3s infinite ease-in-out;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            animation: fadeIn 2s, glow 2s infinite alternate;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px rgba(255, 200, 0, 0.5); }
+            to { text-shadow: 0 0 15px rgba(255, 200, 0, 0.8); }
         }
 
-        /* ----- FIERY NAVIGATION ----- */
+        /* ---- METALLIC NAV ---- */
         nav {
-            background: var(--dark);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            background: var(--white);
+            box-shadow: 0 5px 25px rgba(255, 200, 0, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
-            animation: slideDown 0.5s ease-out;
+            backdrop-filter: blur(5px);
         }
 
         .nav-container {
             display: flex;
             justify-content: center;
-            padding: 1rem;
+            padding: 1.2rem;
         }
 
         .nav-link {
             margin: 0 1.5rem;
-            padding: 0.8rem 1.5rem;
-            color: var(--warm-white);
+            padding: 0.8rem 0;
+            color: #555;
             text-decoration: none;
             font-weight: bold;
             position: relative;
-            transition: all 0.3s ease;
-            border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
-        }
-
-        .nav-link:hover {
-            color: var(--gold);
-            transform: translateY(-3px);
-            text-shadow: 0 0 10px var(--gold);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .nav-link::before {
@@ -150,32 +133,36 @@
             width: 0;
             height: 3px;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(90deg, var(--spicy-red), var(--gold));
-            transition: width 0.3s ease;
+            left: 0;
+            background: linear-gradient(to right, var(--gold), var(--dark-gold));
+            transition: width 0.4s ease;
+            border-radius: 3px;
+        }
+
+        .nav-link:hover {
+            color: var(--dark-gold);
         }
 
         .nav-link:hover::before {
-            width: 80%;
+            width: 100%;
         }
 
-        /* ----- SPICY HERO SECTION ----- */
+        /* ---- GOLDEN HERO ---- */
         .hero {
-            height: 70vh;
+            height: 80vh;
             background: 
-                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+                linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.9)),
                 url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            animation: spiceZoom 15s infinite alternate;
+            animation: goldenZoom 12s infinite alternate;
         }
 
-        @keyframes spiceZoom {
+        @keyframes goldenZoom {
             0% { background-size: 100%; }
-            100% { background-size: 120%; }
+            100% { background-size: 110%; }
         }
 
         .hero-content {
@@ -184,220 +171,128 @@
             text-align: center;
             padding: 2rem;
             max-width: 800px;
-            animation: fireText 1.5s ease-out;
-        }
-
-        @keyframes fireText {
-            from { 
-                opacity: 0; 
-                transform: translateY(30px) scale(0.9);
-                text-shadow: 0 0 20px transparent;
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0) scale(1);
-                text-shadow: 0 0 10px var(--gold);
-            }
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(255, 200, 0, 0.3);
+            backdrop-filter: blur(5px);
+            animation: slideUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 200, 0, 0.3);
         }
 
         .hero h2 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            color: var(--gold);
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-            animation: flicker 3s infinite alternate;
-        }
-
-        @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                text-shadow:
-                    0 0 5px var(--gold),
-                    0 0 10px var(--spicy-red),
-                    0 0 20px var(--deep-yellow);
-            }
-            20%, 24%, 55% {        
-                text-shadow: none;
-            }
+            background: linear-gradient(to right, var(--dark-gold), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            color: #555;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 3rem;
-            background: linear-gradient(45deg, var(--spicy-red), var(--deep-yellow));
+            padding: 1.2rem 3rem;
+            background: linear-gradient(45deg, var(--gold), var(--dark-gold));
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255, 69, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(255, 200, 0, 0.4);
             position: relative;
             overflow: hidden;
-            z-index: 1;
             border: none;
-            cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--deep-yellow), var(--spicy-red));
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
         .cta-button:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.7);
-        }
-
-        .cta-button:hover::before {
-            opacity: 1;
+            box-shadow: 0 15px 35px rgba(255, 200, 0, 0.6);
         }
 
         .cta-button:active {
             transform: translateY(0) scale(0.98);
         }
 
-        /* ----- FIERY PRODUCTS SECTION ----- */
+        /* ---- PRODUCT SHOWCASE ---- */
         .products {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
-            background: var(--warm-white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .products::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(90deg, var(--spicy-red), var(--deep-yellow), var(--spicy-red));
-            animation: fireBorder 3s infinite linear;
-        }
-
-        @keyframes fireBorder {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            background: var(--white);
         }
 
         .section-title {
             font-size: 3.5rem;
-            margin: 2rem auto;
-            color: var(--dark);
-            position: relative;
+            margin: 0 auto 3rem;
+            background: linear-gradient(to right, var(--dark-gold), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             display: inline-block;
-            text-align: center;
-            width: 100%;
-            animation: titleBurn 3s infinite alternate;
-        }
-
-        @keyframes titleBurn {
-            0% { 
-                color: var(--dark);
-                text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-            }
-            50% { 
-                color: var(--spicy-red);
-                text-shadow: 0 0 10px var(--gold);
-            }
-            100% { 
-                color: var(--dark);
-                text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-            }
+            position: relative;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            width: 200px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--spicy-red), var(--gold));
+            width: 50%;
+            height: 4px;
             bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: fireLine 2s infinite alternate;
-            border-radius: 5px;
+            left: 25%;
+            background: linear-gradient(to right, var(--gold), var(--dark-gold));
+            border-radius: 2px;
+            animation: lineExtend 1.5s ease-out;
         }
 
-        @keyframes fireLine {
-            0% { width: 200px; opacity: 0.8; }
-            100% { width: 250px; opacity: 1; }
+        @keyframes lineExtend {
+            from { width: 0; }
+            to { width: 50%; }
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 3rem;
-            margin-top: 3rem;
-            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .product-card {
-            background: white;
+            background: var(--white);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(255, 200, 0, 0.15);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: cardRise 1s ease-out;
-            animation-fill-mode: both;
             position: relative;
             z-index: 1;
         }
 
-        @keyframes cardRise {
-            from { 
-                opacity: 0; 
-                transform: translateY(50px) rotate(5deg);
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0) rotate(0);
-            }
-        }
-
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.3s; }
-        .product-card:nth-child(3) { animation-delay: 0.5s; }
-        .product-card:nth-child(4) { animation-delay: 0.7s; }
-
-        .product-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(255, 69, 0, 0.3);
-            z-index: 2;
-        }
-
-        .product-card::after {
+        .product-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,69,0,0.1));
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 200, 0, 0.1));
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
             z-index: -1;
         }
 
-        .product-card:hover::after {
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(255, 200, 0, 0.25);
+        }
+
+        .product-card:hover::before {
             opacity: 1;
         }
 
@@ -407,128 +302,82 @@
             position: relative;
         }
 
-        .product-image::before {
-            content: 'HOT!';
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--spicy-red);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            z-index: 2;
-            animation: hotPulse 1.5s infinite;
-        }
-
-        @keyframes hotPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s ease;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .product-card:hover .product-image img {
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
 
         .product-info {
             padding: 2rem;
-            text-align: center;
         }
 
         .product-name {
             font-size: 1.5rem;
             margin-bottom: 0.8rem;
-            color: var(--dark);
-            font-weight: bold;
+            color: #333;
             transition: color 0.3s ease;
         }
 
         .product-card:hover .product-name {
-            color: var(--spicy-red);
+            color: var(--dark-gold);
         }
 
         .product-description {
             color: #666;
             margin-bottom: 1.2rem;
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .product-price {
             font-weight: bold;
-            color: var(--spicy-red);
+            color: var(--dark-gold);
             font-size: 1.5rem;
             display: inline-block;
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
-            background: rgba(255, 69, 0, 0.1);
+            background: rgba(255, 200, 0, 0.1);
             transition: all 0.3s ease;
         }
 
         .product-card:hover .product-price {
-            background: rgba(255, 69, 0, 0.2);
+            background: rgba(255, 200, 0, 0.2);
             transform: scale(1.1);
         }
 
-        /* ----- ABOUT SECTION ----- */
+        /* ---- ABOUT SECTION ---- */
         .about {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
-            background: var(--dark);
-            color: white;
+            background: linear-gradient(135deg, var(--cream), var(--white));
             position: relative;
-        }
-
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(90deg, var(--spicy-red), var(--gold), var(--spicy-red));
-            animation: fireBorder 3s infinite linear;
         }
 
         .about-content {
             max-width: 800px;
             margin: 0 auto;
-            animation: fadeInUp 1.5s ease-out;
         }
 
         .about p {
             margin-bottom: 1.8rem;
             line-height: 1.8;
             font-size: 1.1rem;
+            color: #555;
         }
 
-        /* ----- FIRE FOOTER ----- */
+        /* ---- GOLDEN FOOTER ---- */
         footer {
-            background: linear-gradient(135deg, var(--dark), #1A1A1A);
-            color: var(--warm-white);
-            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--white), var(--cream));
+            padding: 4rem 0;
             text-align: center;
             position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--spicy-red), var(--gold), var(--spicy-red));
-            animation: fireBorder 3s infinite linear;
+            box-shadow: 0 -5px 25px rgba(255, 200, 0, 0.1);
         }
 
         .footer-content {
@@ -545,14 +394,9 @@
             height: 120px;
             margin-bottom: 1.5rem;
             border-radius: 50%;
-            border: 3px solid var(--gold);
+            border: 2px solid var(--gold);
             padding: 10px;
-            animation: logoFloat 4s infinite ease-in-out;
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            animation: float 6s infinite ease-in-out;
         }
 
         .footer-logo img {
@@ -565,8 +409,7 @@
             font-size: 1.5rem;
             margin-bottom: 2rem;
             font-weight: bold;
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            color: var(--dark-gold);
         }
 
         .footer-links {
@@ -578,7 +421,7 @@
         }
 
         .footer-link {
-            color: var(--warm-white);
+            color: #555;
             text-decoration: none;
             font-weight: bold;
             position: relative;
@@ -587,8 +430,7 @@
         }
 
         .footer-link:hover {
-            color: var(--gold);
-            transform: translateY(-3px);
+            color: var(--dark-gold);
         }
 
         .footer-link::after {
@@ -613,29 +455,30 @@
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 200, 0, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 200, 0, 0.3);
         }
 
         .social-link:hover {
             background: var(--gold);
-            transform: translateY(-5px) rotate(10deg);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 200, 0, 0.3);
         }
 
         .copyright {
             margin-top: 2rem;
             font-size: 0.9rem;
-            color: #999;
+            color: #888;
         }
 
-        /* ----- RESPONSIVE DESIGN ----- */
+        /* ---- RESPONSIVE DESIGN ---- */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -643,17 +486,6 @@
             
             .slogan {
                 font-size: 1.3rem;
-            }
-            
-            .nav-container {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-            
-            .nav-link {
-                margin: 0.3rem;
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
             }
             
             .hero h2 {
@@ -675,7 +507,7 @@
     </style>
 </head>
 <body>
-    <!-- 🔥 FIERY HEADER 🔥 -->
+    <!-- 🏆 GOLDEN HEADER 🏆 -->
     <header>
         <div class="logo">
             <!-- YOUR LOGO HERE -->
@@ -685,7 +517,7 @@
         <p class="slogan">Taste the fun, Bite the Berry</p>
     </header>
     
-    <!-- 🌶️ SPICY NAVIGATION 🌶️ -->
+    <!-- ✨ METALLIC NAV ✨ -->
     <nav>
         <div class="nav-container">
             <a href="#" class="nav-link">Home</a>
@@ -696,27 +528,27 @@
         </div>
     </nav>
     
-    <!-- 🎇 FIRE HERO SECTION 🎇 -->
+    <!-- 🌟 GOLDEN HERO 🌟 -->
     <section class="hero">
         <div class="hero-content">
-            <h2>CRUNCHY NAMKEEN & SPICY CHIPS</h2>
-            <p>Wholesale deliciousness that brings the heat and keeps customers coming back</p>
-            <a href="#products" class="cta-button">EXPLORE OUR FLAVORS</a>
+            <h2>PREMIUM NAMKEEN & CHIPS</h2>
+            <p>Wholesale deliciousness that keeps customers coming back for more</p>
+            <a href="#products" class="cta-button">SHOP OUR FLAVORS</a>
         </div>
     </section>
     
-    <!-- 🚀 PRODUCTS SECTION (NOW CENTERED!) 🚀 -->
+    <!-- 💫 PRODUCT SHOWCASE 💫 -->
     <section class="products" id="products">
         <h2 class="section-title">OUR PRODUCTS</h2>
         <div class="product-grid">
             <!-- PRODUCT 1 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1589487000140-5d91e3318a3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Spicy Namkeen">
+                    <img src="https://images.unsplash.com/photo-1589487000140-5d91e3318a3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Classic Namkeen">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Fire Masala Mix</h3>
-                    <p class="product-description">Our signature blend with extra chili and secret spices that create an addictive crunch</p>
+                    <h3 class="product-name">Classic Namkeen</h3>
+                    <p class="product-description">Our signature blend with perfect balance of spices and crunch</p>
                     <p class="product-price">₹150/kg</p>
                 </div>
             </div>
@@ -724,11 +556,11 @@
             <!-- PRODUCT 2 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Chili Chips">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Masala Chips">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Blazing Hot Chips</h3>
-                    <p class="product-description">Thin-cut potatoes with our special 5-pepper blend that builds with every bite</p>
+                    <h3 class="product-name">Masala Chips</h3>
+                    <p class="product-description">Thin-cut potatoes with authentic Indian spice blend</p>
                     <p class="product-price">₹180/kg</p>
                 </div>
             </div>
@@ -736,11 +568,11 @@
             <!-- PRODUCT 3 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1566478989037-c30c9ab6d4e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Tasty Mix">
+                    <img src="https://images.unsplash.com/photo-1566478989037-c30c9ab6d4e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sweet Mix">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Sweet Heat Crunch</h3>
-                    <p class="product-description">Perfect balance of jaggery sweetness and chili heat that dances on your tongue</p>
+                    <h3 class="product-name">Sweet Crunch</h3>
+                    <p class="product-description">Jaggery-coated delights with a hint of spice</p>
                     <p class="product-price">₹165/kg</p>
                 </div>
             </div>
@@ -751,25 +583,25 @@
                     <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Cheese Balls">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Cheese Bomb Balls</h3>
-                    <p class="product-description">Explosive cheese flavor with a hint of paprika that melts in your mouth</p>
+                    <h3 class="product-name">Cheese Balls</h3>
+                    <p class="product-description">Explosive cheese flavor that melts in your mouth</p>
                     <p class="product-price">₹200/kg</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- 🏆 ABOUT SECTION 🏆 -->
+    <!-- 🏅 ABOUT SECTION 🏅 -->
     <section class="about" id="about">
         <h2 class="section-title">OUR STORY</h2>
         <div class="about-content">
-            <p>Born from a passion for bold flavors and perfect crunch, Snac Berry has been setting the standard for premium namkeen and chips since 2010. We don't just make snacks - we create crave-worthy experiences.</p>
-            <p>Our master blenders combine traditional recipes with innovative techniques to deliver products that stand out on your shelves. Every batch is taste-tested to ensure consistent quality that keeps customers coming back.</p>
-            <p>From our state-of-the-art facility to our rigorous quality controls, we're committed to being your most reliable wholesale partner in the snack industry.</p>
+            <p>Since 2010, Snac Berry has been crafting premium namkeen and chips that stand out in flavor and quality. Our commitment to traditional recipes with modern techniques makes us a leader in the snack industry.</p>
+            <p>Every batch undergoes rigorous quality checks to ensure consistent taste and crunch that your customers will love. We're proud to be the most trusted wholesale partner for retailers across the region.</p>
+            <p>From our state-of-the-art facility to our passionate team, we're dedicated to delivering snacks that create lasting impressions and repeat business.</p>
         </div>
     </section>
     
-    <!-- ✨ FIRE FOOTER ✨ -->
+    <!-- ✨ GOLDEN FOOTER ✨ -->
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-logo">
@@ -792,7 +624,7 @@
                 <a href="#" class="social-link">YT</a>
             </div>
             
-            <p class="copyright">© 2023 Snac Berry. All Rights Reserved. | Crafted with ❤️ and 🌶️</p>
+            <p class="copyright">© 2023 Snac Berry. All Rights Reserved.</p>
         </div>
     </footer>
 </body>
