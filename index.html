@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snac Berry - Taste the Fun, Bite the Berry</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-yellow: #FFD700;
+            --dark-yellow: #FFA500;
+            --light-yellow: #FFFACD;
+            --white: #FFFFFF;
+            --black: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+        
+        /* Header with Animation */
+        header {
+            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: headerEntry 1.5s ease-out;
+        }
+        
+        @keyframes headerEntry {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite alternate;
+            border: 5px solid var(--white);
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
+            100% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            }
+        }
+        
+        .logo img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        h1 {
+            margin: 1rem 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: textGlow 2s infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 5px var(--white);
+            }
+            to {
+                text-shadow: 0 0 15px var(--white), 0 0 20px var(--light-yellow);
+            }
+        }
+        
+        .slogan {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .nav-link {
+            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
+            color: var(--black);
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .nav-link:hover {
+            color: var(--dark-yellow);
+            transform: translateY(-3px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--dark-yellow);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: url('https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: zoomIn 10s infinite alternate;
+        }
+        
+        @keyframes zoomIn {
+            0% {
+                background-size: 100%;
+            }
+            100% {
+                background-size: 110%;
+            }
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,215,0,0.6));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            animation: slideUp 1s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--black);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--dark-yellow);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-yellow);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: var(--light-yellow);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--black);
+            position: relative;
+            display: inline-block;
+            animation: bounce 1s;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--dark-yellow);
+            bottom: -10px;
+            left: 25%;
+            animation: expand 1.5s ease-out;
+        }
+        
+        @keyframes expand {
+            from {
+                width: 0;
+            }
+            to {
+                width: 50%;
+            }
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .product-card:nth-child(1) { animation-delay: 0.2s; }
+        .product-card:nth-child(2) { animation-delay: 0.4s; }
+        .product-card:nth-child(3) { animation-delay: 0.6s; }
+        .product-card:nth-child(4) { animation-delay: 0.8s; }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--dark-yellow);
+            font-size: 1.2rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .about p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            margin: 1rem 0;
+        }
+        
+        .footer-link {
+            color: var(--white);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--black);
+            transform: scale(1.1);
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .slogan {
+                font-size: 1.2rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                margin: 0.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Slogan -->
+    <header>
+        <div class="logo">
+            <!-- Replace with your actual logo -->
+            <img src="https://via.placeholder.com/150" alt="Snac Berry Logo">
+        </div>
+        <h1>Snac Berry</h1>
+        <p class="slogan">Taste the fun, Bite the Berry - Snac Berry</p>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#1" class="nav-link">Products</a>
+            <a href="#2" class="nav-link">About Us</a>
+            <a href="#3" class="nav-link">Wholesale</a>
+            <a href="#4" class="nav-link">Contact</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Premium Namkeen & Chips</h2>
+            <p>Delicious, crunchy snacks made with the finest ingredients for wholesale distribution</p>
+            <a href="#1" class="cta-button">Explore Products</a>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products" id="1">
+        <h2 class="section-title">Our Products</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your product image -->
+                    <img src="https://images.unsplash.com/photo-1589487000140-5d91e3318a3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Namkeen 1">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Classic Namkeen</h3>
+                    <p class="product-description">Our signature blend of savory spices and crispy texture</p>
+                    <p class="product-price">₹120/kg</p>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your product image -->
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Chips 1">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Masala Chips</h3>
+                    <p class="product-description">Spicy potato chips with authentic Indian flavors</p>
+                    <p class="product-price">₹150/kg</p>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your product image -->
+                    <img src="https://images.unsplash.com/photo-1566478989037-c30c9ab6d4e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Namkeen 2">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Sweet & Spicy Mix</h3>
+                    <p class="product-description">Perfect balance of sweet and heat in every bite</p>
+                    <p class="product-price">₹135/kg</p>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Replace with your product image -->
+                    <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Chips 2">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Cheese Balls</h3>
+                    <p class="product-description">Crunchy cheese-flavored balls that melt in your mouth</p>
+                    <p class="product-price">₹180/kg</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="2">
+        <h2 class="section-title">About Snac Berry</h2>
+        <div class="about-content">
+            <p>Founded with a passion for quality snacks, Snac Berry has been delivering delicious namkeen and chips to wholesale customers across the region. Our commitment to using premium ingredients and traditional recipes sets us apart.</p>
+            <p>Every batch is carefully prepared to ensure consistent taste and quality that your customers will love. We take pride in being a trusted partner for retailers and distributors who value excellence in snack foods.</p>
+            <p>Our state-of-the-art facility follows strict hygiene standards, and our team is dedicated to innovation while preserving the authentic flavors that make our products special.</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!-- Replace with your actual logo -->
+                <img src="https://via.placeholder.com/100" alt="Snac Berry Logo">
+            </div>
+            <p>Taste the fun, Bite the Berry - Snac Berry</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Home</a>
+                <a href="#1" class="footer-link">Products</a>
+                <a href="#2" class="footer-link">About</a>
+                <a href="#3" class="footer-link">Wholesale</a>
+                <a href="#4" class="footer-link">Contact</a>
+            </div>
+            <p class="copyright">© 2023 Snac Berry. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
