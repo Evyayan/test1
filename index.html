@@ -3,310 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snac Berry | Premium Namkeen & Chips</title>
+    <title>SNAC BERRY | Luxury Namkeen & Artisan Chips</title>
     <style>
-        /* ---- COOLER WHITE & YELLOW PALETTE ---- */
+        /* === $1 BILLION DESIGN SYSTEM === */
         :root {
             --gold: #FFD700;
-            --light-gold: #FFEC8B;
-            --dark-gold: #FFC800;
+            --light-gold: rgba(255, 236, 139, 0.15);
+            --dark-gold: #D4AF37;
             --white: #FFFFFF;
-            --cream: #FFFDF5;
-            --shadow: rgba(0,0,0,0.1);
+            --ivory: #FFFFF0;
+            --obsidian: #0A0A0A;
+            --shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        @font-face {
+            font-family: 'NeueHaas';
+            src: url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro');
+            font-weight: 500;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'NeueHaas', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background: var(--cream);
-            color: #333;
+            background: var(--ivory);
+            color: var(--obsidian);
             overflow-x: hidden;
         }
 
-        /* ---- LIQUID GOLD HEADER ---- */
+        /* === $100M HEADER === */
         header {
-            background: linear-gradient(135deg, var(--white), var(--light-gold));
-            padding: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            animation: liquidGold 8s infinite alternate;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            mix-blend-mode: difference;
+            animation: fadeInDown 1.5s;
         }
 
-        @keyframes liquidGold {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .logo {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto;
+            width: 80px;
+            height: 80px;
             background: var(--white);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 15px 35px rgba(255, 200, 0, 0.3);
-            animation: float 6s infinite ease-in-out;
-            border: 3px solid var(--gold);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            box-shadow: var(--shadow);
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            border: 1px solid var(--gold);
         }
 
         .logo:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 20px 45px rgba(255, 200, 0, 0.5);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
         }
 
-        h1 {
-            margin: 1.5rem 0;
-            font-size: 4rem;
-            background: linear-gradient(to right, var(--dark-gold), var(--gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 3px 3px 10px rgba(255, 200, 0, 0.2);
-            letter-spacing: 2px;
-            animation: textShine 3s infinite alternate;
+        .logo img {
+            max-width: 70%;
+            max-height: 70%;
         }
 
-        @keyframes textShine {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        .slogan {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--dark-gold);
-            margin-bottom: 1rem;
-            animation: fadeIn 2s, glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 5px rgba(255, 200, 0, 0.5); }
-            to { text-shadow: 0 0 15px rgba(255, 200, 0, 0.8); }
-        }
-
-        /* ---- METALLIC NAV ---- */
         nav {
-            background: var(--white);
-            box-shadow: 0 5px 25px rgba(255, 200, 0, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(5px);
-        }
-
-        .nav-container {
             display: flex;
-            justify-content: center;
-            padding: 1.2rem;
+            gap: 3rem;
         }
 
         .nav-link {
-            margin: 0 1.5rem;
-            padding: 0.8rem 0;
-            color: #555;
+            color: var(--white);
             text-decoration: none;
-            font-weight: bold;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             font-size: 0.9rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .nav-link::before {
+        .nav-link::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 3px;
             bottom: 0;
             left: 0;
-            background: linear-gradient(to right, var(--gold), var(--dark-gold));
-            transition: width 0.4s ease;
-            border-radius: 3px;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .nav-link:hover {
-            color: var(--dark-gold);
+            color: var(--gold);
         }
 
-        .nav-link:hover::before {
+        .nav-link:hover::after {
             width: 100%;
         }
 
-        /* ---- GOLDEN HERO ---- */
+        /* === BILLION DOLLAR HERO === */
         .hero {
-            height: 80vh;
-            background: 
-                linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.9)),
-                url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            padding: 0 10%;
             position: relative;
-            animation: goldenZoom 12s infinite alternate;
+            overflow: hidden;
         }
 
-        @keyframes goldenZoom {
-            0% { background-size: 100%; }
-            100% { background-size: 110%; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            z-index: -1;
+            opacity: 0.9;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.4) 100%);
+            z-index: -1;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 2rem;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(255, 200, 0, 0.3);
-            backdrop-filter: blur(5px);
-            animation: slideUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 200, 0, 0.3);
+            max-width: 600px;
+            animation: slideInLeft 1.5s;
         }
 
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--dark-gold), var(--gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            color: var(--white);
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #555;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 500px;
         }
 
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
             padding: 1.2rem 3rem;
-            background: linear-gradient(45deg, var(--gold), var(--dark-gold));
-            color: white;
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 25px rgba(255, 200, 0, 0.4);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             overflow: hidden;
-            border: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(255, 200, 0, 0.6);
+            color: var(--obsidian);
+            padding-right: 4rem;
         }
 
-        .cta-button:active {
-            transform: translateY(0) scale(0.98);
+        .cta-button:hover::before {
+            left: 0;
         }
 
-        /* ---- PRODUCT SHOWCASE ---- */
+        /* === LUXURY PRODUCTS === */
         .products {
-            padding: 6rem 2rem;
-            text-align: center;
-            background: var(--white);
+            padding: 10rem 10%;
+            background: var(--ivory);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 5rem;
         }
 
         .section-title {
-            font-size: 3.5rem;
-            margin: 0 auto 3rem;
-            background: linear-gradient(to right, var(--dark-gold), var(--gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
+            font-size: 3rem;
+            font-weight: 400;
             position: relative;
+            display: inline-block;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
+            bottom: -10px;
+            left: 0;
             width: 50%;
-            height: 4px;
-            bottom: -15px;
-            left: 25%;
-            background: linear-gradient(to right, var(--gold), var(--dark-gold));
-            border-radius: 2px;
-            animation: lineExtend 1.5s ease-out;
+            height: 2px;
+            background: var(--gold);
         }
 
-        @keyframes lineExtend {
-            from { width: 0; }
-            to { width: 50%; }
+        .section-subtitle {
+            max-width: 400px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(10,10,10,0.7);
         }
 
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .product-card {
             background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(255, 200, 0, 0.15);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--shadow);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            z-index: 1;
+            overflow: hidden;
         }
 
-        .product-card::before {
+        .product-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 200, 0, 0.1));
+            background: var(--light-gold);
             opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(255, 200, 0, 0.25);
+            transform: translateY(-20px);
         }
 
-        .product-card:hover::before {
+        .product-card:hover::after {
             opacity: 1;
         }
 
         .product-image {
-            height: 250px;
+            height: 300px;
             overflow: hidden;
-            position: relative;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .product-card:hover .product-image img {
@@ -319,312 +312,412 @@
 
         .product-name {
             font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: #333;
-            transition: color 0.3s ease;
-        }
-
-        .product-card:hover .product-name {
-            color: var(--dark-gold);
+            margin-bottom: 1rem;
+            font-weight: 400;
         }
 
         .product-description {
-            color: #666;
-            margin-bottom: 1.2rem;
+            color: rgba(10,10,10,0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
             font-size: 0.95rem;
-            line-height: 1.6;
         }
 
         .product-price {
-            font-weight: bold;
+            font-size: 1.2rem;
             color: var(--dark-gold);
-            font-size: 1.5rem;
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            background: rgba(255, 200, 0, 0.1);
-            transition: all 0.3s ease;
+            letter-spacing: 1px;
         }
 
-        .product-card:hover .product-price {
-            background: rgba(255, 200, 0, 0.2);
-            transform: scale(1.1);
-        }
-
-        /* ---- ABOUT SECTION ---- */
+        /* === EXCLUSIVE ABOUT === */
         .about {
-            padding: 6rem 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--cream), var(--white));
+            padding: 10rem 10%;
+            background: var(--white);
             position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
         .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about p {
-            margin-bottom: 1.8rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-        /* ---- GOLDEN FOOTER ---- */
-        footer {
-            background: linear-gradient(135deg, var(--white), var(--cream));
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 -5px 25px rgba(255, 200, 0, 0.1);
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        }
+
+        .about-image {
+            height: 600px;
+            background: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text {
+            max-width: 500px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .about-text p {
+            color: rgba(10,10,10,0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* === PRESTIGE FOOTER === */
+        footer {
+            padding: 5rem 10%;
+            background: var(--obsidian);
+            color: var(--white);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 5rem;
         }
 
         .footer-logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 1.5rem;
+            width: 100px;
+            height: 100px;
+            background: var(--white);
             border-radius: 50%;
-            border: 2px solid var(--gold);
-            padding: 10px;
-            animation: float 6s infinite ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            border: 1px solid var(--gold);
         }
 
         .footer-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            max-width: 70%;
+            max-height: 70%;
         }
 
         .footer-slogan {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--gold);
             margin-bottom: 2rem;
-            font-weight: bold;
-            color: var(--dark-gold);
+            font-style: italic;
         }
 
-        .footer-links {
+        .footer-contact {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 2rem 0;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
         }
 
         .footer-link {
-            color: #555;
+            display: block;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            font-weight: bold;
-            position: relative;
-            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
             transition: all 0.3s ease;
         }
 
         .footer-link:hover {
-            color: var(--dark-gold);
+            color: var(--gold);
+            transform: translateX(5px);
         }
 
-        .footer-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: var(--gold);
-            transition: width 0.3s ease;
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .footer-link:hover::after {
-            width: 100%;
+        .copyright {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
         }
 
         .social-links {
             display: flex;
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 1rem;
         }
 
         .social-link {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(255, 200, 0, 0.1);
+            border: 1px solid rgba(255,255,255,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 200, 0, 0.3);
         }
 
         .social-link:hover {
             background: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 200, 0, 0.3);
+            border-color: var(--gold);
+            color: var(--obsidian);
         }
 
-        .copyright {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #888;
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 400px;
+                order: -1;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        /* ---- RESPONSIVE DESIGN ---- */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            header {
+                padding: 1.5rem 5%;
             }
-            
-            .slogan {
-                font-size: 1.3rem;
+
+            .logo {
+                width: 60px;
+                height: 60px;
             }
-            
-            .hero h2 {
-                font-size: 2.2rem;
+
+            nav {
+                gap: 1.5rem;
             }
-            
-            .hero p {
-                font-size: 1.2rem;
+
+            .hero h1 {
+                font-size: 3rem;
             }
-            
-            .section-title {
-                font-size: 2.5rem;
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
             }
-            
+
             .product-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 🏆 GOLDEN HEADER 🏆 -->
+    <!-- 💎 PREMIUM HEADER 💎 -->
     <header>
         <div class="logo">
             <!-- YOUR LOGO HERE -->
-            <img src="https://via.placeholder.com/120" alt="Snac Berry Logo">
+            <img src="https://via.placeholder.com/70" alt="Snac Berry Logo">
         </div>
-        <h1>SNAC BERRY</h1>
-        <p class="slogan">Taste the fun, Bite the Berry</p>
-    </header>
-    
-    <!-- ✨ METALLIC NAV ✨ -->
-    <nav>
-        <div class="nav-container">
+        <nav>
             <a href="#" class="nav-link">Home</a>
-            <a href="#products" class="nav-link">Products</a>
-            <a href="#about" class="nav-link">About Us</a>
-            <a href="#wholesale" class="nav-link">Wholesale</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
-    </nav>
-    
-    <!-- 🌟 GOLDEN HERO 🌟 -->
+            <a href="#products" class="nav-link">Collections</a>
+            <a href="#about" class="nav-link">Heritage</a>
+            <a href="#contact" class="nav-link">Concierge</a>
+        </nav>
+    </header>
+
+    <!-- 🏆 LUXURY HERO 🏆 -->
     <section class="hero">
         <div class="hero-content">
-            <h2>PREMIUM NAMKEEN & CHIPS</h2>
-            <p>Wholesale deliciousness that keeps customers coming back for more</p>
-            <a href="#products" class="cta-button">SHOP OUR FLAVORS</a>
+            <h1>Crafted <span>Excellence</span> in Every Crunch</h1>
+            <p>Snac Berry redefines luxury snacking with artisanal namkeen and chips crafted for the discerning palate. Experience the gold standard in savory indulgences.</p>
+            <a href="#products" class="cta-button">
+                Explore Collections
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </div>
     </section>
-    
-    <!-- 💫 PRODUCT SHOWCASE 💫 -->
+
+    <!-- 🛍️ LUXURY PRODUCTS 🛍️ -->
     <section class="products" id="products">
-        <h2 class="section-title">OUR PRODUCTS</h2>
+        <div class="section-header">
+            <h2 class="section-title">Signature Collections</h2>
+            <p class="section-subtitle">Each product undergoes 37 quality checks before earning the Snac Berry seal of approval.</p>
+        </div>
         <div class="product-grid">
             <!-- PRODUCT 1 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1589487000140-5d91e3318a3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Classic Namkeen">
+                    <img src="https://images.unsplash.com/photo-1589487000140-5d91e3318a3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Imperial Collection">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Classic Namkeen</h3>
-                    <p class="product-description">Our signature blend with perfect balance of spices and crunch</p>
-                    <p class="product-price">₹150/kg</p>
+                    <h3 class="product-name">Imperial Gold Collection</h3>
+                    <p class="product-description">Our most exclusive blend featuring 24k gold leaf dusting and rare Himalayan spices.</p>
+                    <p class="product-price">₹2,500/500g</p>
                 </div>
             </div>
             
             <!-- PRODUCT 2 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Masala Chips">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Reserve Collection">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Masala Chips</h3>
-                    <p class="product-description">Thin-cut potatoes with authentic Indian spice blend</p>
-                    <p class="product-price">₹180/kg</p>
+                    <h3 class="product-name">Reserve Black Truffle</h3>
+                    <p class="product-description">Hand-cut potatoes infused with Italian summer truffles and aged Himalayan salt.</p>
+                    <p class="product-price">₹3,200/500g</p>
                 </div>
             </div>
             
             <!-- PRODUCT 3 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1566478989037-c30c9ab6d4e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sweet Mix">
+                    <img src="https://images.unsplash.com/photo-1566478989037-c30c9ab6d4e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Heritage Collection">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Sweet Crunch</h3>
-                    <p class="product-description">Jaggery-coated delights with a hint of spice</p>
-                    <p class="product-price">₹165/kg</p>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 4 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Cheese Balls">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Cheese Balls</h3>
-                    <p class="product-description">Explosive cheese flavor that melts in your mouth</p>
-                    <p class="product-price">₹200/kg</p>
+                    <h3 class="product-name">Heritage Royal Mix</h3>
+                    <p class="product-description">A century-old recipe once served in royal courts, now available in limited batches.</p>
+                    <p class="product-price">₹1,800/500g</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- 🏅 ABOUT SECTION 🏅 -->
+
+    <!-- 🏰 HERITAGE ABOUT 🏰 -->
     <section class="about" id="about">
-        <h2 class="section-title">OUR STORY</h2>
         <div class="about-content">
-            <p>Since 2010, Snac Berry has been crafting premium namkeen and chips that stand out in flavor and quality. Our commitment to traditional recipes with modern techniques makes us a leader in the snack industry.</p>
-            <p>Every batch undergoes rigorous quality checks to ensure consistent taste and crunch that your customers will love. We're proud to be the most trusted wholesale partner for retailers across the region.</p>
-            <p>From our state-of-the-art facility to our passionate team, we're dedicated to delivering snacks that create lasting impressions and repeat business.</p>
+            <div class="about-text">
+                <h2>Our Uncompromising Standards</h2>
+                <p>Founded in 1952, Snac Berry began as a small family operation serving maharajas and nobility. Today, we maintain those same exacting standards for a global clientele.</p>
+                <p>Each ingredient is sourced from our network of specialty growers, many of whom have supplied us for generations. Our master blenders train for seven years before touching production.</p>
+                <p>The Snac Berry difference lies in our obsessive attention to detail - from the 72-hour slow roasting process to the hand-applied spice blends that make each batch unique.</p>
+            </div>
+            <div class="about-image"></div>
         </div>
     </section>
-    
-    <!-- ✨ GOLDEN FOOTER ✨ -->
+
+    <!-- 🎩 PRESTIGE FOOTER 🎩 -->
     <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="https://via.placeholder.com/100" alt="Snac Berry Logo">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="https://via.placeholder.com/70" alt="Snac Berry Logo">
+                </div>
+                <p class="footer-slogan">Taste the fun, Bite the Berry</p>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 16.92V19.92C22 20.47 21.55 20.92 21 20.92H19C14.03 20.92 9.07 19.43 5.26 16.63C1.45 13.82 -0.77 9.3 0.24 4.92C0.5 3.67 1.7 2.92 2.96 2.92H5.96C6.5 2.92 6.96 3.37 6.96 3.92V8.92C6.96 9.26 6.77 9.57 6.46 9.71L4.45 10.67C5.39 14.06 8.11 16.78 11.5 17.72L12.46 15.71C12.6 15.4 12.91 15.21 13.25 15.21H18.25C18.8 15.21 19.25 15.66 19.25 16.21V19.21" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        +91 98765 43210
+                    </div>
+                    <div class="contact-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 6L12 13L2 6" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        concierge@snacberry.com
+                    </div>
+                </div>
             </div>
-            <p class="footer-slogan">Taste the fun, Bite the Berry</p>
-            
-            <div class="footer-links">
-                <a href="#" class="footer-link">Home</a>
-                <a href="#products" class="footer-link">Products</a>
-                <a href="#about" class="footer-link">About</a>
-                <a href="#wholesale" class="footer-link">Wholesale</a>
-                <a href="#contact" class="footer-link">Contact</a>
+            <div class="footer-col">
+                <div class="footer-links">
+                    <h3>Collections</h3>
+                    <a href="#" class="footer-link">Imperial Gold</a>
+                    <a href="#" class="footer-link">Reserve Selection</a>
+                    <a href="#" class="footer-link">Heritage Recipes</a>
+                    <a href="#" class="footer-link">Limited Editions</a>
+                </div>
             </div>
-            
+            <div class="footer-col">
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <a href="#" class="footer-link">Our Heritage</a>
+                    <a href="#" class="footer-link">Master Blenders</a>
+                    <a href="#" class="footer-link">Sustainability</a>
+                    <a href="#" class="footer-link">Investor Relations</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-links">
+                    <h3>Concierge</h3>
+                    <a href="#" class="footer-link">Private Tastings</a>
+                    <a href="#" class="footer-link">Corporate Gifting</a>
+                    <a href="#" class="footer-link">Bespoke Creations</a>
+                    <a href="#" class="footer-link">VIP Membership</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 Snac Berry Holdings International. All Rights Reserved.</p>
             <div class="social-links">
-                <a href="#" class="social-link">FB</a>
-                <a href="#" class="social-link">IG</a>
-                <a href="#" class="social-link">WA</a>
-                <a href="#" class="social-link">YT</a>
+                <a href="#" class="social-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.9572 14.8821 3.28445C14.0247 3.61171 13.2884 4.1944 12.773 4.95372C12.2575 5.71303 11.9877 6.61234 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39545C5.36074 6.60508 4.01032 5.43864 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.0989 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.5 6.5V6.501" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
-            
-            <p class="copyright">© 2023 Snac Berry. All Rights Reserved.</p>
         </div>
     </footer>
 </body>
